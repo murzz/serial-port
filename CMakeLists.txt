@@ -7,6 +7,9 @@ project( "simple-boost-serial-port"
 
 find_package( Boost 1.40.0 REQUIRED )
 
+set( THREADS_PREFER_PTHREAD_FLAG ON )
+find_package( Threads REQUIRED )
+
 set( CMAKE_CXX_STANDARD 11 )
 
 add_library( ${PROJECT_NAME}
@@ -21,9 +24,11 @@ target_include_directories( ${PROJECT_NAME}
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 	${Boost_INCLUDE_DIR}
+	${Pthread_INCLUDE_DIR}
 )
 
 target_link_libraries( ${PROJECT_NAME}
-    ${Boost_LIBRARIES}
-    pthread
+    PRIVATE
+        ${Boost_LIBRARIES}
+        Threads::Threads
 )
