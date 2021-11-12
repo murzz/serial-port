@@ -2,12 +2,14 @@
  * Author: Terraneo Federico
  * Distributed under the Boost Software License, Version 1.0.
  *
- * v1.01:  Fixed a bug regarding reading after a timeout.
+ * v1.11: Used uppercase for SerialStream.h
+ *
+ * v1.01: Fixed a bug regarding reading after a timeout.
  *
  * v1.00: First release.
  */
 
-#include "serialstream.h"
+#include "SerialStream.h"
 
 #include <iostream>
 #include <boost/asio.hpp>
