@@ -37,6 +37,10 @@ int main(int argc, char* argv[])
     {
         cout<<"Error: "<<e.what()<<endl;
         return 1;
+    } catch(timeout_exception& e)
+    {
+        cout<<"Caught timeout_exception: "<<e.what()<<endl;
+        return 1;
     }
 }
 
