@@ -1,7 +1,7 @@
 //A serial class that appears as an iostream
 
 #include <iostream>
-#include "serialstream.h"
+#include "SerialStream.h"
 
 using namespace std;
 using namespace boost::posix_time;
