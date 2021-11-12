@@ -1,4 +1,5 @@
-
+v1.11: Converted to library for ease of including using cmake and vcpkg.
+       Moved all class headers to unified include directory and all class sources to unified src directory.
 v1.10: Added C++11 support, replaced boost libs with the std equivalent when
        possible/convenient
 v1.09: Fixed a bug when reading after a timeout, reported by Erik Svensson.
