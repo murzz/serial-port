@@ -9,14 +9,12 @@ find_package( Boost 1.40.0 REQUIRED )
 
 set( CMAKE_CXX_STANDARD 11 )
 
-add_library( ${PROJECT_NAME} STATIC)
-
-target_sources( ${PROJECT_NAME}
-    PRIVATE
-        src/AsyncSerial.cpp
-        src/BufferedAsyncSerial.cpp
-        src/SerialStream.cpp
-        src/TimeoutSerial.cpp
+add_library( ${PROJECT_NAME}
+	src/TimeoutSerial.cpp
+	src/SerialStream.cpp
+	src/BufferedAsyncSerial.cpp
+	src/AsyncSerial.cpp
+	src/SimpleSerial.cpp
 )
 
 target_include_directories( ${PROJECT_NAME}
@@ -25,7 +23,7 @@ target_include_directories( ${PROJECT_NAME}
 )
 
 target_link_libraries( ${PROJECT_NAME}
-    PRIVATE
-        Boost::boost
-        pthread
+    ${Boost_LIBRARIES}
+    stdexcept
+    pthread
 )
