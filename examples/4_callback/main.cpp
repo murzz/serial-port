@@ -8,6 +8,7 @@ using namespace std;
 
 void received(const char *data, unsigned int len)
 {
+    cout << "Received " << len << " characters: ";
     vector<char> v(data,data+len);
     for(unsigned int i=0;i<v.size();i++)
     {
@@ -53,7 +54,9 @@ int main(int argc, char* argv[])
                 break;
             }
             char c;
+            cout << "Enter character to send" << endl;
             cin.get(c); //blocking wait for standard input
+            cout << "Transmitting character " << c << endl;
             if(c==3) //if Ctrl-C
             {
                 cin.get(c);
