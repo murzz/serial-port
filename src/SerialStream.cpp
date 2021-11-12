@@ -46,7 +46,7 @@ public:
      */
     SerialDeviceImpl(const SerialOptions& options);
     
-    io_service io; ///< Io service object
+    io_context io; ///< Io context object
     serial_port port; ///< Serial port object
     deadline_timer timer; ///< Timer for timeout
     posix_time::time_duration timeout; ///< Read/write timeout

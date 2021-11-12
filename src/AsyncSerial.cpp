@@ -51,7 +51,7 @@ public:
     AsyncSerialImpl(): io(), port(io), backgroundThread(), open(false),
             error(false) {}
 
-    boost::asio::io_service io; ///< Io service object
+    boost::asio::io_context io; ///< Io context object
     boost::asio::serial_port port; ///< Serial port object
     std::thread backgroundThread; ///< Thread that runs read/write operations
     bool open; ///< True if port open
@@ -100,10 +100,10 @@ void AsyncSerial::open(const std::string& devname, unsigned int baud_rate,
     pimpl->port.set_option(opt_flow);
     pimpl->port.set_option(opt_stop);
 
-    //This gives some work to the io_service before it is started
+    //This gives some work to the io_context before it is started
     pimpl->io.post(boost::bind(&AsyncSerial::doRead, this));
 
-    thread t(boost::bind(&asio::io_service::run, &pimpl->io));
+    thread t(boost::bind(&asio::io_context::run, &pimpl->io));
     pimpl->backgroundThread.swap(t);
     setErrorStatus(false);//If we get here, no error
     pimpl->open=true; //Port is now open
