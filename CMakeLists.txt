@@ -24,11 +24,10 @@ target_include_directories( ${PROJECT_NAME}
     PUBLIC
         ${CMAKE_CURRENT_SOURCE_DIR}/include
 	${Boost_INCLUDE_DIR}
-	${Pthread_INCLUDE_DIR}
 )
 
 target_link_libraries( ${PROJECT_NAME}
     PRIVATE
         ${Boost_LIBRARIES}
-        Threads::Threads
+	${CMAKE_THREAD_LIBS_INIT}
 )
