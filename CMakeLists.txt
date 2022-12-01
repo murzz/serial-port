@@ -20,7 +20,7 @@ add_library( ${PROJECT_NAME}
 
 add_library( ${PROJECT_NAME}::lib ALIAS ${PROJECT_NAME})
 
-target_compile_features( ${PROJECT_NAME
+target_compile_features( ${PROJECT_NAME}
     PRIVATE
         cxx_std_11
 )
