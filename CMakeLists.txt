@@ -5,7 +5,7 @@ project( "simple-boost-serial-port"
     DESCRIPTION "A set of C++ classes to easily handle serial ports across different platforms, built on top of boost.asio"
 )
 
-find_package( Boost 1.40.0 REQUIRED )
+find_package( Boost 1.40.0 COMPONENTS system REQUIRED )
 
 find_package( Threads REQUIRED )
 
@@ -32,6 +32,6 @@ target_include_directories( ${PROJECT_NAME}
 target_link_libraries( ${PROJECT_NAME}
     PRIVATE
         Boost::headers
-	Boost::system
-	Threads::Threads
+        Boost::system
+        Threads::Threads
 )
