@@ -23,10 +23,11 @@
 #include <string>
 #include <algorithm>
 #include <iostream>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 using namespace std;
 using namespace boost;
+using namespace boost::placeholders;
 
 TimeoutSerial::TimeoutSerial(): io(), port(io), timer(io),
         timeout(boost::posix_time::seconds(0)) {}

@@ -33,11 +33,12 @@
 #include <algorithm>
 #include <thread>
 #include <mutex>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 #include <boost/shared_array.hpp>
 
 using namespace std;
 using namespace boost;
+using namespace boost::placeholders;
 
 //
 //Class AsyncSerial

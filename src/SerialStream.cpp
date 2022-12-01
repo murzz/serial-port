@@ -13,11 +13,12 @@
 
 #include <iostream>
 #include <boost/asio.hpp>
-#include <boost/bind.hpp>
+#include <boost/bind/bind.hpp>
 
 using namespace std;
 using namespace boost;
 using namespace boost::asio;
+using namespace boost::placeholders;
 
 /**
  * Possible outcome of a read. Set by callbacks, read from main code
