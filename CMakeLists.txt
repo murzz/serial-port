@@ -10,14 +10,19 @@ find_package( Boost 1.40.0 REQUIRED )
 set( THREADS_PREFER_PTHREAD_FLAG ON )
 find_package( Threads REQUIRED )
 
-set( CMAKE_CXX_STANDARD 11 )
-
 add_library( ${PROJECT_NAME}
 	src/TimeoutSerial.cpp
 	src/SerialStream.cpp
 	src/BufferedAsyncSerial.cpp
 	src/AsyncSerial.cpp
 	src/SimpleSerial.cpp
+)
+
+add_library( ${PROJECT_NAME}::lib ALIAS ${PROJECT_NAME})
+
+target_compile_features( ${PROJECT_NAME
+    PRIVATE
+        cxx_std_11
 )
 
 target_include_directories( ${PROJECT_NAME}
