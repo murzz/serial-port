@@ -36,7 +36,6 @@
 #include <boost/bind.hpp>
 #include <boost/core/noncopyable.hpp>
 #include <boost/shared_array.hpp>
-#include <boost/thread/thread.hpp>
 
 using namespace std;
 using namespace boost;
@@ -286,6 +285,9 @@ void AsyncSerial::clearReadCallback()
 
 #else //__APPLE__
 
+#include <mutex>
+#include <thread>
+
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
@@ -297,10 +299,10 @@ class AsyncSerialImpl: private boost::noncopyable
 public:
     AsyncSerialImpl(): backgroundThread(), open(false), error(false) {}
 
-    boost::thread backgroundThread; ///< Thread that runs read operations
+    std::thread backgroundThread; ///< Thread that runs read operations
     bool open; ///< True if port open
     bool error; ///< Error flag
-    mutable boost::mutex errorMutex; ///< Mutex for access to error
+    mutable std::mutex errorMutex; ///< Mutex for access to error
 
     int fd; ///< File descriptor for serial port
     
