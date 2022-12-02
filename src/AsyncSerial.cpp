@@ -34,7 +34,9 @@
 #include <thread>
 #include <mutex>
 #include <boost/bind.hpp>
+#include <boost/core/noncopyable.hpp>
 #include <boost/shared_array.hpp>
+#include <boost/thread/thread.hpp>
 
 using namespace std;
 using namespace boost;
